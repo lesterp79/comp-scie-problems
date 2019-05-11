@@ -28,6 +28,9 @@ package com.leetcode.problems.medium.graphs;
 public class NumberOfIslandsBFSSlow {
 
     public static void main(String[] args) {
+
+        System.out.println('a'  + 'a');
+
         char[][] grid = new char[4][];
         grid[0] = new char[]{'1', '1', '0', '0', '0'};
         grid[1] = new char[]{'1', '1', '0', '0', '0'};

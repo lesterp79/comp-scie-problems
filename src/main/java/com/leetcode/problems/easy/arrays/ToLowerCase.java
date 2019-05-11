@@ -22,6 +22,7 @@ public class ToLowerCase {
         if (str == null) {
             return null;
         }
+        
         char[] chars = str.toCharArray();
 
         for (int i = 0; i < chars.length; i++) {
