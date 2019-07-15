@@ -54,6 +54,5 @@ public class PerfectBinaryTree {
 
         return leftPerfectHeight + 1;
 
-
     }
 }
