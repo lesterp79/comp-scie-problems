@@ -249,7 +249,7 @@ public class ShuntingYard {
      *
      * @return the list of tokens.
      */
-    private static Deque<String> toTokenList(final String text) {
+    static Deque<String> toTokenList(final String text) {
         final Deque<String> tokenList = new ArrayDeque<>();
 
         int index = 0;
@@ -312,13 +312,8 @@ public class ShuntingYard {
      */
     public static void main(final String... args) {
 
-        String line = "not ( prods or ( sh and not cart ) ) and check"
-
-
-
-
-
-        ;
+        //String line = "not ( not D or B and ( not ( not A or B ) ) )";
+        String line = "not(not(a and b))";
 
         Deque<String> tokens = toTokenList(line);
         final List<String> postfixTokenList = shuntingYard(tokens);
@@ -333,8 +328,9 @@ public class ShuntingYard {
             System.out.println();
         }
         BTreeNode<String> x = constructTree(postfixTokenList);
-
         BTreePrinter.printNode(x);
+        BTreeNode<String> y = DeMorgans.applyDeMorgans(x, false);
+        BTreePrinter.printNode(y);
 
     }
 

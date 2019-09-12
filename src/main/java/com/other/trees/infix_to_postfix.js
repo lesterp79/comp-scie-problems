@@ -28,7 +28,7 @@ function infixToPostFix(exp) {
             alert("Pushing current unary operator: " + current + " to operator stack");
             operatorStack.push(current);
         } else if (current === "(") {
-            alert("Pushing current unary operator ( to operator stack");
+            alert("Pushing left parenthesis to operator stack");
             operatorStack.push("(");
         } else if (current === ")") {
             alert("Right parentheses found");
@@ -138,7 +138,7 @@ function length() {
 }
 
 function isEmpty() {
-    this.top <= 0;
+    return this.top <= 0;
 }
 
 /*
@@ -147,19 +147,19 @@ function isEmpty() {
 /* Creates a new queue. A queue is a first-in-first-out (FIFO) data structure -
  * items are added to the end of the queue and removed from the front.
  */
-function Queue(){
+function Queue() {
 
     // initialise the queue and offset
-    var queue  = [];
+    var queue = [];
     var offset = 0;
 
     // Returns the length of the queue.
-    this.getLength = function(){
+    this.getLength = function () {
         return (queue.length - offset);
     }
 
     // Returns true if the queue is empty, and false otherwise.
-    this.isEmpty = function(){
+    this.isEmpty = function () {
         return (queue.length == 0);
     }
 
@@ -167,14 +167,14 @@ function Queue(){
      *
      * item - the item to enqueue
      */
-    this.enqueue = function(item){
+    this.enqueue = function (item) {
         queue.push(item);
     }
 
     /* Dequeues an item and returns it. If the queue is empty, the value
      * 'undefined' is returned.
      */
-    this.dequeue = function(){
+    this.dequeue = function () {
 
         // if the queue is empty, return immediately
         if (queue.length == 0) return undefined;
@@ -183,8 +183,8 @@ function Queue(){
         var item = queue[offset];
 
         // increment the offset and remove the free space if necessary
-        if (++ offset * 2 >= queue.length){
-            queue  = queue.slice(offset);
+        if (++offset * 2 >= queue.length) {
+            queue = queue.slice(offset);
             offset = 0;
         }
 
@@ -196,7 +196,7 @@ function Queue(){
     /* Returns the item at the front of the queue (without dequeuing it). If the
      * queue is empty then undefined is returned.
      */
-    this.peek = function(){
+    this.peek = function () {
         return (queue.length > 0 ? queue[offset] : undefined);
     }
 
