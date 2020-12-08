@@ -54,20 +54,20 @@ public class BuildFromInAndPreOrder {
             return null;
         }
 
-        TreeNode root = new TreeNode(preorder[idx++]);
+    TreeNode root = new TreeNode(preorder[idx++]);
 
         if (start == end) {
-            return root;
-        }
+        return root;
+    }
 
-        int index = findIdx(inorder, root.val, end);
+    int index = findIdx(inorder, root.val, end);
 
-        root.left = build(preorder, inorder, start, index - 1);
-        root.right = build(preorder, inorder, index + 1, end);
+    root.left = build(preorder, inorder, start, index - 1);
+    root.right = build(preorder, inorder, index + 1, end);
 
         return root;
 
-    }
+}
 
     private int findIdx(int[] inorder, int val, int end) {
         for (int i=end; i>=0; i--) {

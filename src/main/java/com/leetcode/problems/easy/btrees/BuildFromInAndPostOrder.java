@@ -15,22 +15,16 @@ import com.util.TreeNode;
 
 /**
  * Given inorder and postorder traversal of a tree, construct the binary tree.
- *
- * Note:
- * You may assume that duplicates do not exist in the tree.
- *
+ * <p>
+ * Note: You may assume that duplicates do not exist in the tree.
+ * <p>
  * For example, given
- *
- * inorder = [9,3,15,20,7]
- * postorder = [9,15,7,20,3]
- *
+ * <p>
+ * inorder = [9,3,15,20,7] postorder = [9,15,7,20,3]
+ * <p>
  * Return the following binary tree:
- *
- *     3
- *    / \
- *   9  20
- *     /  \
- *    15   7
+ * <p>
+ * 3 / \ 9  20 /  \ 15   7
  */
 public class BuildFromInAndPostOrder {
 
@@ -41,27 +35,32 @@ public class BuildFromInAndPostOrder {
     private int idx;
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (inorder.length != postorder.length) return null;
-        if (inorder.length == 0) return null;
-        idx = postorder.length-1;
+        if (inorder.length != postorder.length)
+            return null;
+        if (inorder.length == 0)
+            return null;
+        idx = postorder.length - 1;
         TreeNode root = build(inorder, postorder, 0, idx);
         return root;
     }
 
     private TreeNode build(int[] inorder, int[] postorder, int start, int end) {
-        if (start>end) return null;
+        if (start > end)
+            return null;
         TreeNode node = new TreeNode(postorder[idx--]);
-        if (start==end) return node;
+        if (start == end)
+            return node;
 
         int index = findIdx(inorder, node.val, end);
-        node.right = build(inorder, postorder, index+1, end);
-        node.left = build(inorder, postorder, start, index-1);
+        node.right = build(inorder, postorder, index + 1, end);
+        node.left = build(inorder, postorder, start, index - 1);
         return node;
     }
 
     private int findIdx(int[] inorder, int val, int end) {
-        for (int i=end; i>=0; i--) {
-            if (inorder[i]==val) return i;
+        for (int i = end; i >= 0; i--) {
+            if (inorder[i] == val)
+                return i;
         }
         return 0;
     }
