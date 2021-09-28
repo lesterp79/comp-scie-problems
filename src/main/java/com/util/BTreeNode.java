@@ -11,7 +11,7 @@
  */
 package com.util;
 
-public class BTreeNode<T extends Comparable<?>> {
+public class BTreeNode<T> {
     public BTreeNode<T> left, right;
     public T val;
 

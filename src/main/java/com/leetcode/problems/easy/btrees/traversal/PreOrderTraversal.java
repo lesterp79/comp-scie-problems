@@ -11,7 +11,7 @@
  */
 package com.leetcode.problems.easy.btrees.traversal;
 
-import com.book.problems.trees.MinimalTree;
+import com.coding_interview_book.graphs_trees.MinimalTree;
 import com.util.BTreeNode;
 import com.util.BTreePrinter;
 import java.util.ArrayList;
